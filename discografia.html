@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discografia</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.6.4/plyr.css" />
+    <script src="https://cdn.plyr.io/3.6.4/plyr.js"></script>
+
+    <script>
+        $(document).ready(function() {
+    // Adiciona evento "click" aos links de música
+    $(".music-link").click(function(event) {
+        event.preventDefault(); // Previne comportamento padrão do link
+        var musicLink = $(this).attr("href"); // Obtém link da música
+        var videoHtml = '<video controls><source src="' + musicLink + '"></video>'; // Cria elemento de vídeo com o link da música
+        $(".music-player").html(videoHtml); // Atualiza o conteúdo do player de música com o elemento de vídeo
+        const player = new Plyr('.music-player video'); // Cria um novo player com Plyr
+        player.play(); // Toca o vídeo
+    });
+
+    // Adiciona evento "submit" ao formulário de inserção de link
+    $(".link-form").submit(function(event) {
+        event.preventDefault(); // Previne comportamento padrão do formulário
+        var musicLink = $(this).find("input").val(); // Obtém o link inserido pelo usuário
+        var musicName = $(this).attr("data-music-name"); // Obtém o nome da música correspondente
+        $(".music-link:contains('" + musicName + "')").attr("href", musicLink); // Atualiza o atributo "href" do link de música correspondente
+    });
+});
+
+    </script>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Fã Clube Freddie Mercury</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alterna navegação">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Início</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="carreira.html">Carreira</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="pessoal.html">Pessoal</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="discografia.html">Discografia</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 class="text-center my-5">Discografia</h1>
+
+        <div class="row">
+            <div class="col-md-4 my-3">
+                <img src="discos/disco1.jpeg" alt="Disco 2" class="img-fluid img-discos">
+                <h4 class="my-3">Nome do Disco 2</h4>
+                <p class="ano">Ano: 1974</p>
+                <h5 class="faixas">Faixas:</h5>
+                <ol>
+                    <li><a href="https://www.youtube.com/watch?v=TXGbhniTBrU" onclick="showPlayer()">We Will Rock You</a></li>
+                    <li><a href="#" class="music-link">Nome da Música 2</a></li>
+                    <li><a href="#" class="music-link">Nome da Música 3</a></li>
+                </ol>
+                <p class="curiosidades">Curiosidades: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce mollis hendrerit tincidunt. Nam sed semper tellus. Proin tempor laoreet erat, vel rutrum neque tincidunt ac. </p>
+            </div>
+            
+            
+              
+            <div class="col-md-4 my-3">
+                <img src="discos/disco2.jpg" alt="Disco 2" class="img-fluid img-discos">
+                <h4 class="my-3">Nome do Disco 2</h4>
+                <p class="ano">Ano: 1974</p>
+                <ol>
+                  <li><a href="https://www.youtube.com/watch?v=TXGbhniTBrU">We Will Rock You</a></li>
+                  <li><a href="https://www.youtube.com/watch?v=yyyyy">Nome da Música 2</a></li>
+                  <li><a href="https://www.youtube.com/watch?v=zzzzz">Nome da Música 3</a></li>
+                </ol>
+                <p class="curiosidades">Curiosidades: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce mollis hendrerit tincidunt. Nam sed semper tellus. Proin tempor laoreet erat, vel rutrum neque tincidunt ac. </p>
+              </div>
+                         
+            <div class="col-md-4 my-3">
+                <img src="discos/disco3.jpg" alt="Disco 3" class="img-fluid img-discos">
+                <h4 class="my-3">Nome do Disco 3</h4>
+                <p class="ano">Ano: 1975</p>
+                <p>Músicas: "Nome da Música 1", "Nome da Música 2", "Nome da Música 3"</p>
+                <p class="curiosidades">Curiosidades: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce mollis hendrerit tincidunt. Nam sed semper tellus. Proin tempor laoreet erat, vel rutrum neque tincidunt ac. </p>
+            </div>
+            <div class="col-md-4 my-3">
+                <img src="discos/disco4.jpg" alt="Disco 4" class="img-fluid img-discos">
+                <h4 class="my-3">Nome do Disco 4</h4>
+                <p class="ano">Ano: 1976</p>
+                <p>Músicas: "Nome da Música 1", "Nome da Música 2", "Nome da Música 3"</p>
+                <p class="curiosidades">Curiosidades: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce mollis hendrerit tincidunt. Nam sed semper tellus. Proin tempor laoreet erat, vel rutrum neque tincidunt ac. </p>
+            </div>
+            <div class="col-md-4 my-3">
+                <img src="img/album-5.jpg" alt="Disco 5" class="img-fluid img-discos">
+                <h4 class="my-3">Nome do Disco 5</h4>
+                <p class="ano">Ano: 1977</p>
+                <p>Músicas: "Nome da Música 1", "Nome da Música 2", "Nome da Música 3"</p>
+                <p class="curiosidades">Curiosidades: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce mollis hendrerit tincidunt. Nam sed semper tellus. Proin tempor laoreet erat, vel rutrum neque tincidunt ac. </p>
+            </div>
+            <div class="col-md-4 my-3">
+                <img src="img/album-6.jpg" alt="Disco 6" class="img-fluid img-discos">
+                <h4 class="my-3">Nome do Disco 6</h4>
+                <p class="ano">Ano: 1978</p>
+                <p>Músicas: "Nome da Música 1", "Nome da Música 2", "Nome da Música 3"</p>
+                <p class="curiosidades">Curiosidades: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce mollis hendrerit tincidunt. Nam sed semper tellus. Proin tempor laoreet erat, vel rutrum neque tincidunt ac. </p>
+            </div>
+            <div class="col-md-4 my-3">
+                <img src="img/album-7.jpg" alt="Disco 7" class="img-fluid img-discos">
+                <h4 class="my-3">Nome do Disco 7</h4>
+                <p class="ano">Ano: 1979</p>
+                <p>Músicas: "Nome da Música 1", "Nome da Música 2", "Nome da Música 3"</p>
+                <p class="curiosidades">Curiosidades: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce mollis hendrerit tincidunt. Nam sed semper tellus. Proin tempor laoreet erat, vel rutrum neque tincidunt ac. </p>
+            </div>
+            <div class="col-md-4 my-3">
+                <img src="img/album-8.jpg" alt="Disco 8" class="img-fluid img-discos">
+                <h4 class="my-3">Nome do Disco 8</h4>
+                <p class="ano">Ano: 1980</p>
+                <p>Músicas: "Nome da Música 1", "Nome da Música 2", "Nome da Música 3"</p>
+                <pp class="curiosidades">Curiosidades: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce mollis hendrerit tincidunt. Nam sed semper tellus. Proin tempor laoreet erat, vel rutrum neque tincidunt ac. </p>
+            </div>
+                <div class="col-md-4 my-3">
+                <img src="img/album-9.jpg" alt="Disco 9" class="img-fluid img-discos">
+                <h4 class="my-3">Nome do Disco 9</h4>
+                <p class="ano">Ano: 1982</p>
+                <p>Músicas: "Nome da Música 1", "Nome da Música 2", "Nome da Música 3"</p>
+                <p class="curiosidades">Curiosidades: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce mollis hendrerit tincidunt. Nam sed semper tellus. Proin tempor laoreet erat, vel rutrum neque tincidunt ac. </p>
+            </div>
+            </div>
+            </div>
+            
+            <footer class="footer bg-dark text-white">
+                <div class="container">
+                    <audio id="audio" src="./mp3/Queen - We Will Rock You.mp3" controls style="display: block; margin: 10px auto; background-color: black;"></audio>
+
+                    <p class="text-center">&copy; 2023 Fã Clube Freddie Mercury. Todos os direitos reservados.</p>
+                </div>
+            </footer>
+            
+            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js"></script>
+            <script>
+                function showPlayer() {
+                  var player = new Plyr('#player video');
+                  player.play();
+                  document.getElementById('player').classList.remove('plyr-player-hidden');
+                }
+              </script>
+            <div id="player" class="plyr-player plyr-player-hidden">
+                <video controls crossorigin>
+                  <source src="https://www.youtube.com/watch?v=TXGbhniTBrU" type="video/youtube" />
+                </video>
+              </div>
+              
+              
+            <script src="scripts.js"></script>
+    </body>
+</html>
+            
+            
+            
+            
+            

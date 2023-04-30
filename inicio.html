@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presente Surpresa para Alicia</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="scripts.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col text-center my-5">
+                <h1 class="text-white">Presente Surpresa para Alicia</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div id="pergunta" class="form-group">
+                    <label id="perguntaLabel"></label>
+                    <input type="text" class="form-control" id="resposta">
+                </div>
+                <button type="button" class="btn btn-primary" onclick="verificarResposta()">Enviar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let perguntas = [
+            { pergunta: "Qual o nome verdadeiro de Freddie Mercury?", resposta: "Farrokh Bulsara" },
+            { pergunta: "Em que país Freddie Mercury nasceu?", resposta: "Tanzânia" },
+            { pergunta: "Em que ano Freddie Mercury faleceu?", resposta: "1991" },
+            { pergunta: "Quantos anos Freddie Mercury tinha quando se juntou à banda Queen?", resposta: "24" },
+            { pergunta: "Qual a música mais famosa da banda Queen?", resposta: "Bohemian Rhapsody" },
+            { pergunta: "Qual era o signo do Freddie?", resposta: "virgem" },
+            
+        ];
+
+        let indexPerguntaAtual = 0;
+        let perguntaAtual = perguntas[indexPerguntaAtual];
+        let perguntaLabel = document.getElementById("perguntaLabel");
+        let respostaInput = document.getElementById("resposta");
+
+        function mostrarPergunta() {
+            perguntaLabel.innerHTML = perguntaAtual.pergunta;
+            respostaInput.value = "";
+        }
+
+        function verificarResposta() {
+            let resposta = respostaInput.value;
+            if (resposta.toLowerCase() === perguntaAtual.resposta.toLowerCase()) {
+                indexPerguntaAtual++;
+                if (indexPerguntaAtual < perguntas.length) {
+                    perguntaAtual = perguntas[indexPerguntaAtual];
+                    mostrarPergunta();
+                    alert("Parabéns! Você acertou! Clique em OK para avançar para a próxima pergunta.");
+                } else {
+                    alert("Parabéns! Você acertou todas as perguntas! Clique em OK para acessar o presente surpresa.");
+                    window.location.href = "index.html";
+                }
+            } else {
+                alert("Resposta incorreta. Tente novamente.");
+            }
+        }
+
+        function mostrarPergunta() {
+            perguntaLabel.textContent = perguntaAtual.pergunta;
+            respostaInput.value = "";
+        }
+
+        respostaInput.addEventListener("keyup", function(event) {
+            if (event.key === "Enter") {
+                verificarResposta();
+            }
+            });
+
+
+        mostrarPergunta();
+
+    </script>
+</body>
+</html>
